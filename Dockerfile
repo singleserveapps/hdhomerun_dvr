@@ -26,6 +26,8 @@ EXPOSE 137 138 139 445 65001
 
 RUN /usr/sbin/smbd && sleep 10 && smbcontrol smbd shutdown
 
+RUN /usr/sbin/smbd -D -d1 --option=workgroup=MYGROUP
+
 USER chris
 
 CMD ["/hdhomerun/bin/hdhomerun_start.sh"]
