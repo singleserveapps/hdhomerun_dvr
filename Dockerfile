@@ -11,8 +11,10 @@ ADD hdhomerun.conf /hdhomerun/etc/
 WORKDIR /hdhomerun/bin
 ADD hdhomerun_start.sh /hdhomerun/bin/
 RUN curl -O -L http://download.silicondust.com/hdhomerun/hdhomerun_record_linux
-#RUN useradd -ms /bin/bash hdhomerun
-#RUN chown -R hdhomerun:hdhomerun /hdhomerun
+
+RUN useradd -ms /bin/bash chris
+RUN chown -R chris:chris /hdhomerun
+
 RUN chmod 755 /hdhomerun/bin
 RUN chmod 755 /hdhomerun/etc
 RUN chmod 755 /hdhomerun/video
@@ -24,6 +26,6 @@ EXPOSE 137 138 139 445 65001
 
 RUN /usr/sbin/smbd && sleep 10 && smbcontrol smbd shutdown
 
-#USER hdhomerun
+USER chris
 
 CMD ["/hdhomerun/bin/hdhomerun_start.sh"]
