@@ -1,5 +1,5 @@
 FROM docker.io/centos
-MAINTAINER Anthony Jones <anthony@anthonyandtobie.com>
+MAINTAINER Chris <chris@arraylabs.com>
 RUN yum -y install wget tar samba samba-client
 RUN yum -y update
 RUN if [ ! -d /hdhomerun ];then mkdir /hdhomerun; fi
@@ -26,4 +26,3 @@ RUN /usr/sbin/smbd && sleep 10 && smbcontrol smbd shutdown
 #USER hdhomerun
 
 CMD ["/hdhomerun/bin/hdhomerun_start.sh"]
-
