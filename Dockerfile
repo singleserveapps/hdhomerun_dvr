@@ -1,7 +1,7 @@
 FROM docker.io/centos
 MAINTAINER Chris <chris@arraylabs.com>
-#RUN yum -y install wget tar samba samba-client
-RUN yum -y install wget tar
+RUN yum -y install wget tar samba samba-client
+#RUN yum -y install wget tar
 RUN yum -y update
 RUN if [ ! -d /hdhomerun ];then mkdir /hdhomerun; fi
 RUN if [ ! -d /hdhomerun/video ];then mkdir /hdhomerun/video; fi
@@ -18,11 +18,11 @@ RUN chmod 755 /hdhomerun/etc
 RUN chmod 755 /hdhomerun/video
 RUN chmod 755 /hdhomerun/bin/*
 RUN chmod 744 /hdhomerun/etc/*
-#ADD smb.conf /etc/samba/
-#RUN smbpasswd -an nobody
-#EXPOSE 137 138 139 445 65001
+ADD smb.conf /etc/samba/
+RUN smbpasswd -an nobody
+EXPOSE 137 138 139 445 65001
 
-#RUN /usr/sbin/smbd && sleep 10 && smbcontrol smbd shutdown
+RUN /usr/sbin/smbd && sleep 10 && smbcontrol smbd shutdown
 
 #USER hdhomerun
 
