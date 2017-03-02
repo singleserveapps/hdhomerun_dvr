@@ -3,13 +3,7 @@
 Docker image for the HDHomeRun Record DVR software.  Also includes Samba with required mounts.
 
 # Usage
-    docker run -d --net=host arjones67/hdhomerun_dvr
-
-
-# WARNING!!!
-
-I no longer use this image.  The project is months behind schedule and I'm tired of waiting.  I moved to a new solution.  I'm updating this image, but i can no longer fully test it.  So use at your own risk.
-
+    docker run -d --net=host arraylabs/hdhomerun_dvr
 
 # Details
 
