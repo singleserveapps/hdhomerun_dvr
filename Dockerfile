@@ -17,7 +17,7 @@ RUN curl -O -L http://download.silicondust.com/hdhomerun/hdhomerun_record_linux
 
 RUN chmod 755 /hdhomerun/bin
 RUN chmod 755 /hdhomerun/etc
-RUN chmod 755 /hdhomerun/video
+RUN chmod 777 /hdhomerun/video
 RUN chmod 755 /hdhomerun/bin/*
 RUN chmod 744 /hdhomerun/etc/*
 ADD smb.conf /etc/samba/
