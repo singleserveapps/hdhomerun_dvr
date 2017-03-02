@@ -12,8 +12,8 @@ WORKDIR /hdhomerun/bin
 ADD hdhomerun_start.sh /hdhomerun/bin/
 RUN curl -O -L http://download.silicondust.com/hdhomerun/hdhomerun_record_linux
 
-RUN useradd -ms /bin/bash chris
-RUN chown -R chris:chris /hdhomerun
+#RUN useradd -ms /bin/bash chris
+#RUN chown -R chris:chris /hdhomerun
 
 RUN chmod 755 /hdhomerun/bin
 RUN chmod 755 /hdhomerun/etc
@@ -26,8 +26,8 @@ EXPOSE 137 138 139 445 65001
 
 RUN /usr/sbin/smbd && sleep 10 && smbcontrol smbd shutdown
 
-RUN /usr/sbin/smbd -D -d1 --option=workgroup=MYGROUP
+#RUN /usr/sbin/smbd -D -d1 --option=workgroup=MYGROUP
 
-USER chris
+#USER chris
 
 CMD ["/hdhomerun/bin/hdhomerun_start.sh"]
