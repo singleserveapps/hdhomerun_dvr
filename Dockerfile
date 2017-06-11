@@ -1,7 +1,7 @@
 FROM docker.io/centos
 MAINTAINER Chris <chris@arraylabs.com>
 RUN yum -y install wget tar
-#RUN yum -y install wget tar
+
 RUN yum -y update
 RUN if [ ! -d /hdhomerun ];then mkdir /hdhomerun; fi
 RUN if [ ! -d /hdhomerun/video ];then mkdir /hdhomerun/video; fi
@@ -11,9 +11,6 @@ ADD hdhomerun.conf /hdhomerun/etc/
 WORKDIR /hdhomerun/bin
 ADD hdhomerun_start.sh /hdhomerun/bin/
 RUN curl -O -L http://download.silicondust.com/hdhomerun/hdhomerun_record_linux
-
-#RUN useradd -ms /bin/bash chris
-#RUN chown -R chris:chris /hdhomerun
 
 RUN chmod 755 /hdhomerun/bin
 RUN chmod 755 /hdhomerun/etc
