@@ -10,7 +10,7 @@ RUN if [ ! -d /hdhomerun/bin ];then mkdir /hdhomerun/bin; fi
 ADD hdhomerun.conf /hdhomerun/etc/
 WORKDIR /hdhomerun/bin
 ADD hdhomerun_start.sh /hdhomerun/bin/
-RUN curl -O -L http://download.silicondust.com/hdhomerun/hdhomerun_record_linux
+RUN curl -O -L https://download.silicondust.com/hdhomerun/hdhomerun_record_linux
 
 RUN chmod 755 /hdhomerun/bin
 RUN chmod 755 /hdhomerun/etc
